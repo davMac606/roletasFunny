@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roleta</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+        .navbar {
+            background-color: lightgrey;
+        }
+        </style>
     <script>
 
         /*
@@ -38,7 +45,36 @@
                 'Ricardo Tadei Romero', 'Samuel Pereira Camargo', 'Vinícius Miguel dos Santos Montecino', 'Vitor Baltazar Bergamini'];
 
             while (counter < length) {
-                const nomesEba = nomes[Math.floor(Math.random() * nomes.length)] + " &  " + nomes[Math.floor(Math.random() * nomes.length)] + "<br>";
+                let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+                let resultadoChance = "";
+                if (randomNumber < 10) {
+                    resultadoChance = "A chance é bem baixa, que pena😭";
+                } else if (randomNumber < 20 && randomNumber > 10 ) {
+                    resultadoChance = "Olha, pode acontecer...😏";
+                } else if (randomNumber < 30 && randomNumber > 20) {
+                    resultadoChance = "Chance decente, vai...💞";
+                } else if (randomNumber < 40 && randomNumber > 30) {
+                    resultadoChance = "Chance é um pouco mais alta...";
+                } else if (randomNumber < 50 && randomNumber > 40) {
+                    resultadoChance = "Chance tá quase boa!";
+                } else if (randomNumber == 50) {
+                    resultadoChance = "Chance mediana";
+                } else if (randomNumber < 60 && randomNumber > 50) {
+                    resultadoChance = "Chegando em um lugar...😏";
+                } else if (randomNumber < 70 && randomNumber > 60) {
+                    resultadoChance = "Mais e mais perto, boa sorte🥰";
+                } else if (randomNumber < 80  && randomNumber > 70) {
+                    resultadoChance = "O clima tá subindo...";
+                } else if (randomNumber < 90 && randomNumber > 80) {
+                    resultadoChance = "Se tentar...";
+                } else if (randomNumber < 100 && randomNumber > 90) {
+                    resultadoChance = "Boa lua de mel pros pombinhos!🤍";
+                } else if (randomNumber == 100) {
+                    resultadoChance = "Não tem como escapar, foram feitos um pro outro!";
+                }
+
+                const nomesEba = nomes[Math.floor(Math.random() * nomes.length)] + " &  " + nomes[Math.floor(Math.random() * nomes.length)] + " -------  " + randomNumber + "%, " + resultadoChance  + "<br>" ;
                 result += nomesEba + "<br>";
                 document.getElementById('mostra').innerHTML = result;
                 counter++;
@@ -53,23 +89,44 @@
 
     </script>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
 <body onload="makeCouple()">
-    <button onclick="makeCouple()">Refazer</button>
-    <p id="mostra"></p>
-    <br>
-    <br>
-    <br>
-    <a href="SP.html">
-        <button>South Park Names</button>
-    </a>
-    <br>
-    <br>
-    <br>
-    <a href="crimes.html">
-        <button>Crimes</button>
-    </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="SP.html">South Park</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="crimes.html">Crimes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" onclick="makecouple()"> Refazer</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container container-fluid text-bg-dark">
+        <div class="row">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4 col-sm-12">
+                 <p id="mostra"></p>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+      </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body> 
 
 </html>
